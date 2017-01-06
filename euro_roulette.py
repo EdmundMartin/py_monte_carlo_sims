@@ -3,7 +3,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 punter_balance = 100
-punter_fixed_wager = 1
+punter_fixed_wager = 10
 
 def single_number_guess():
     return randint(0,36)
@@ -25,13 +25,16 @@ def run_simulation_single_number(balance,fixed_wager):
         balance -= fixed_wager
         change_in_balance = single_number_bet(fixed_wager,single_number_guess())
         balance += change_in_balance
-        print(balance)
+        #print(balance)
         wager += 1
         wagers_to_plot.append(wager)
         balances_to_plot.append(balance)
     plt.plot(wagers_to_plot,balances_to_plot)
 
-run_simulation_single_number(punter_balance,punter_fixed_wager)
+x = 0
+while x <100:
+    run_simulation_single_number(punter_balance,punter_fixed_wager)
+    x += 1
 
 plt.ylabel('Account Value')
 plt.xlabel('Wager Count')
