@@ -31,10 +31,9 @@ def run_simulation_single_number(balance,fixed_wager):
         balances_to_plot.append(balance)
     plt.plot(wagers_to_plot,balances_to_plot)
 
-x = 0
-while x <100:
+
+for i in range(100):
     run_simulation_single_number(punter_balance,punter_fixed_wager)
-    x += 1
 
 plt.ylabel('Account Value')
 plt.xlabel('Wager Count')
